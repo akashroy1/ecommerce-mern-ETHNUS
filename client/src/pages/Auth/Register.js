@@ -8,6 +8,7 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [answer, setAnswer] = useState("");
@@ -16,6 +17,10 @@ const Register = () => {
   // form function
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(password !== confirmPassword){
+      toast.error("Both password should match");
+      return;
+    }
     try {
       const res = await axios.post("/api/v1/auth/register", {
         name,
@@ -73,6 +78,17 @@ const Register = () => {
               className="form-control"
               id="exampleInputPassword1"
               placeholder="Enter Your Password"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="form-control"
+              id="exampleInputPassword2"
+              placeholder="Confirm Your Password"
               required
             />
           </div>

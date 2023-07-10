@@ -1,4 +1,9 @@
 /*  register page  */
+
+input{
+  color: #ffffff !important;
+}
+
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px black inset;
   -webkit-text-fill-color: white !important;
@@ -10,6 +15,7 @@ input:-webkit-autofill:focus {
   background-color: black !important;
 }
 input[type="text"]::placeholder,
+input[type="password"]::placeholder,
 input[type="email"]::placeholder{
   color: rgba(255, 255, 255, 0.615);
 }
